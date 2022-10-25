@@ -1,0 +1,49 @@
+<mat-toolbar class="mat-elevation-z10" fxLayout="row" >
+<div>
+<a mat-button [matMenuTriggerFor]="matMenu"  *ngIf="currentUser$ | async"> User Management</a>
+<mat-menu #matMenu="matMenu">
+  <button mat-menu-item routerLink="home/adduser">
+ Add User
+  </button>
+  <button mat-menu-item routerLink="home/edituser">
+Edit User
+  </button>
+
+</mat-menu>
+
+<a mat-button [matMenuTriggerFor]="matMenu1" *ngIf="currentUser$ | async"> Services Management</a>
+<mat-menu #matMenu1="matMenu" >
+  <button mat-menu-item routerLink="home/addmaterial">
+ Add Material
+  </button>
+  <button mat-menu-item routerLink="home/editmaterial">
+Edit Material
+  </button>
+  <button mat-menu-item routerLink="home/addoutlaytype">
+    Add Outlay Type
+     </button>
+     <button mat-menu-item routerLink="home/editoutlaytype">
+   Edit Outlay Type
+     </button>
+</mat-menu>
+<a mat-button [matMenuTriggerFor]="matMenu2"  *ngIf="currentUser$ | async"> Outlay Management</a>
+<mat-menu #matMenu2="matMenu">
+  <button mat-menu-item routerLink="home/addoutlay">
+ Add Outlay
+  </button>
+  <button mat-menu-item routerLink="home/editoutlay/:id">
+Edit Outlay
+  </button>
+  <button mat-menu-item routerLink="home/delete">
+   Delete Outlay
+     </button>
+</mat-menu>
+</div>
+<div class="spacer"></div>
+<button mat-button routerLink="login" style="margin:20px">
+  تسجيل دخول 
+</button>
+<button mat-button (click)="logout()">
+  خروج 
+</button>
+</mat-toolbar>

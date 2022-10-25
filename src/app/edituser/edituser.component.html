@@ -1,0 +1,34 @@
+<table mat-table [dataSource]="activeRequests">
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef><b> User Name</b></th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="admin">
+        <th mat-header-cell *matHeaderCellDef><b>Is Admin </b></th>
+        <td mat-cell *matCellDef="let element">{{ element.admin }}</td>
+    </ng-container>
+    <ng-container matColumnDef="ACTIONS">
+        <th mat-header-cell *matHeaderCellDef><b>عمليات</b></th>
+
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="options">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item 
+                    (click)="checkProcess('edit',element.User_id)">
+                    <span> Edit</span>
+                </button>
+                <button mat-menu-item
+                    (click)="checkProcess('delete',element.id)">
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

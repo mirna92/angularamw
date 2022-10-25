@@ -1,0 +1,22 @@
+mat-form-field{
+    width: 100%;
+    padding: 5px, 5px, 5px;
+}
+.title-overlap {
+    position: absolute;
+    top: -17px;
+    right: 20px;
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    direction: rtl;
+    
+  } 
+  mat-card{
+      padding-top: 2rem;
+      border-radius: 1rem;
+      
+  }
+  mat-form-field{
+      margin-bottom: 15px;
+  }

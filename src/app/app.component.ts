@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'amw';
+  c:any;
+  ngOnInit(): void {
+     this.c=localStorage.getItem("token");
+     console.log(this.c);
+    }
 }

@@ -1,1 +1,81 @@
+You can add global styles to this file, and also import other style files
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Cairo" !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+th,
+td,
+mat-header-cell,
+mat-cell,
+mat-chip,
+mat-checkbox,
+mat-error,
+mat-option,
+mat-card,
+div,
+mat-label,
+mat-card-title,
+span,
+input,
+button,mat-list-item{
+  font-family: "Cairo" !important;
+
+}
+.header-font1 {
+  font-size: 2vw;
+  padding-bottom: 1em;
+}
+.header-font2 {
+  font-size: 1.5vw;
+  padding-bottom: 1em;
+}
+.centered{
+  text-align: center;
+  width: 60%;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  
+}
+
+ .mat-form-field-required-marker{
+  color: red;
+}
+.right-input{
+  width: 48% !important;
+  float: right !important;
+}
+.left-input{
+  width: 48% !important;
+  float: left !important;
+}
+.white-smoke{
+  background-color: whitesmoke;
+}
+mat-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+h1,button{color:blue ; font-weight: bold !important}
+.mat-label{color:blue}
+
+.mat-select-value, .mat-form-field-label,.mat-content,mat-hint,mat-error,mat-expansion-panel-header{
+  padding-bottom: 5px;
+}
+mat-hint{
+  width:100%
+}
