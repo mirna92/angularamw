@@ -15,22 +15,25 @@ import { HomeComponent } from './home/home.component';
 import { UpdatoutlaytypeComponent } from './updatoutlaytype/updatoutlaytype.component';
 import { UpdatoutlayComponent } from './updatoutlay/updatoutlay.component';
 import { UpdatuserComponent } from './updatuser/updatuser.component';
+import { AuthGuard } from './auth.guard';
+import { ReportsComponent } from './reports/reports.component';
 const routes: Routes = [
    { path: 'login', component: LoginComponent },
   {path:'home',component:HomeComponent},
-  {path:'home/adduser',component:AdduserComponent},
-  {path:'home/edituser',component:EdituserComponent},
-  {path:'home/addmaterial',component:AddmaterialComponent},
-  {path:'home/editmaterial',component:EditmaterialComponent},
-  {path:'home/updatematerial/:id',component:UpdatematerialComponent},
-  {path:'home/addoutlaytype',component:AddoutlaytypeComponent},
-  {path:'home/editoutlaytype',component:EditoutlaytypeComponent},
-  {path:'home/updateoutlaytype/:id',component:UpdatoutlaytypeComponent},
+  {path:'home/adduser',component:AdduserComponent , canActivate: [AuthGuard]},
+  {path:'home/edituser',component:EdituserComponent,canActivate: [AuthGuard]},
+  {path:'home/updateuser/:id',component:UpdatuserComponent,canActivate: [AuthGuard]},
+  {path:'home/addmaterial',component:AddmaterialComponent,canActivate: [AuthGuard]},
+  {path:'home/editmaterial',component:EditmaterialComponent,canActivate: [AuthGuard]},
+  {path:'home/updatematerial/:id',component:UpdatematerialComponent,canActivate: [AuthGuard]},
+  {path:'home/addoutlaytype',component:AddoutlaytypeComponent,canActivate: [AuthGuard]},
+  {path:'home/editoutlaytype',component:EditoutlaytypeComponent,canActivate: [AuthGuard]},
+  {path:'home/updateoutlaytype/:id',component:UpdatoutlaytypeComponent,canActivate: [AuthGuard]},
   {path:'home/addoutlay',component:AddoutlayComponent},
   {path:'home/editoutlay/:id',component:EditoutlayComponent},
   {path:'home/updateoutlay/:id',component:UpdatoutlayComponent},
-  {path:'home/updateuser/:id',component:UpdatuserComponent},
-  {path:'home/delete',component:EdituserComponent}
+  {path:'home/report/:id',component:ReportsComponent, canActivate: [AuthGuard]},
+  {path:'home/report/',component:ReportsComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

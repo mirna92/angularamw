@@ -9,9 +9,7 @@ table {
 button {
   color: blue;
 }
-mat-icon{
-  color: rgb(114, 114, 161) !important;
-}
+
   th {
     text-align: center !important;
     font-size: 20px !important;
@@ -22,13 +20,3 @@ mat-icon{
     font-size: 20px !important;
   }
 
-  .scroll-container{
-    max-height: 70vh;
-     overflow: auto;
-  
-  }
-  .m-b{
-    padding-bottom: 4px;
-    margin-top: 4px;
-    border-bottom: 1px solid #d4d4d4;
-  }

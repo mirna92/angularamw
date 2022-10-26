@@ -1,0 +1,72 @@
+<div><h1 style="text-align:center" *ngIf="id==1">Expenses within a specific month or year </h1></div>
+<div *ngIf="id==2">
+    <form #signupform="ngForm" [formGroup]="form" name="signupform"
+    (ngSubmit)="signupform.valid && getUser()" >
+    <div class="col-12"  style="text-align:center;">
+        <mat-form-field appearance="outline">
+          <mat-label style="color:black">User Name</mat-label>
+          <mat-select formControlName="userFormControl" >
+            <mat-option *ngFor="let users of filtereduser" [value]="users.User_id">
+              {{ users.name }}
+            </mat-option> 
+           </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" style="width: 100%; margin-top: 20px" mat-flat-button color="primary" >
+   Get Report          </button>
+    </div>
+    </form>
+</div>
+<div><h1 style="text-align:center" *ngIf="id==2">Private expenses for each user  </h1>
+</div>
+<table mat-table [dataSource]="activeRequests" *ngIf="id==1 ">
+
+    <ng-container matColumnDef="material_name">
+        <th mat-header-cell *matHeaderCellDef><b> material name</b></th>
+        <td mat-cell *matCellDef="let element">{{ element.material_name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="outlay_name">
+        <th mat-header-cell *matHeaderCellDef><b>outlay name </b></th>
+        <td mat-cell *matCellDef="let element">{{ element.outlay_name }}</td>
+    </ng-container>price
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef><b>price </b></th>
+        <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date" >
+        <th mat-header-cell *matHeaderCellDef><b>date </b></th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns1; sticky:true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+</table>
+
+<table mat-table [dataSource]="activeRequests" *ngIf="id==2 && loading">
+
+    <ng-container matColumnDef="material_name">
+        <th mat-header-cell *matHeaderCellDef><b> material name</b></th>
+        <td mat-cell *matCellDef="let element">{{ element.material_name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="outlay_name">
+        <th mat-header-cell *matHeaderCellDef><b>outlay name </b></th>
+        <td mat-cell *matCellDef="let element">{{ element.outlay_name }}</td>
+    </ng-container>price
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef><b>price </b></th>
+        <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date" >
+        <th mat-header-cell *matHeaderCellDef><b>date </b></th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+    </ng-container>
+    <ng-container matColumnDef="user_name">
+        <th mat-header-cell *matHeaderCellDef><b>User name </b></th>
+        <td mat-cell *matCellDef="let element">{{ element.user_name }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns1; sticky:true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+</table>

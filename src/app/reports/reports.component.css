@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+    text-align: start;
+    border-left: solid 1px;
+    border-right: solid 1px;
+    border-color: rgb(233 233 233);
+  }
+  
+  button {
+    color: blue;
+  }
+
+    th {
+      text-align: center !important;
+      font-size: 20px !important;
+      color:blue !important;
+    }
+   td{
+      text-align: center !important;
+      font-size: 20px !important;
+    }
+  
+  

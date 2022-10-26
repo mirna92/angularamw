@@ -36,6 +36,7 @@ import { MAT_MOMENT_DATE_ADAPTER_OPTIONS,MomentDateAdapter } from '@angular/mate
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { UpdatuserComponent } from './updatuser/updatuser.component';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { UpdatuserComponent } from './updatuser/updatuser.component';
     UpdatoutlaytypeComponent,
     UpdatoutlayComponent,
     HomeComponent,
-    UpdatuserComponent
+    UpdatuserComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,

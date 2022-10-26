@@ -38,12 +38,27 @@ Edit Outlay
    Delete Outlay
      </button>
 </mat-menu>
+<a mat-button [matMenuTriggerFor]="matMenu3" *ngIf="currentUser$ | async"> Reports</a>
+<mat-menu #matMenu3="matMenu" >
+  <button mat-menu-item routerLink="home/report/1">
+    Expenses within a specific month 
+  </button>
+  <button mat-menu-item routerLink="home/report/2">
+    Private expenses for each user
+  </button>
+  <button mat-menu-item routerLink="home/report/3">
+    Special expenses for materials purchased 
+     </button>
+     <button mat-menu-item routerLink="home/report/4">
+    Expenses for services + total expenses for services 
+     </button>
+</mat-menu>
 </div>
 <div class="spacer"></div>
-<button mat-button routerLink="login" style="margin:20px">
+<button mat-button routerLink="login" style="margin:20px" *ngIf="!(currentUser$ | async)">
   تسجيل دخول 
 </button>
-<button mat-button (click)="logout()">
+<button mat-button (click)="logout()" *ngIf="(currentUser$ | async)">
   خروج 
 </button>
 </mat-toolbar>

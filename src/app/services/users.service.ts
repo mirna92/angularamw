@@ -8,19 +8,22 @@ import {headers} from '../utils/settings';
   providedIn: 'root'
 })
 export class UsersService {
- url='http://localhost:3000/api/login';
- urladduser='http://localhost:3000/user';
- urledituser='http://localhost:3000/useredit';
- urladdmaterial='http://localhost:3000/materialadd';
- urleditmaterial='http://localhost:3000/materialedit';
- urladdoutlaytype='http://localhost:3000/outlaytypeadd';
- urleditoutlaytype='http://localhost:3000/outlaytypeedit';
- urldeleteuser='http://localhost:3000/deleteuser';
- urlmaterial='http://localhost:3000/material';
- urloutlaytype='http://localhost:3000/outlaytype';
- urladdoutlay='http://localhost:3000/outlayadd';
- urleditoutlay='http://localhost:3000/outlayedit';
- urloutlay='http://localhost:3000/outlay/';
+  baseUrl="https://veiled-awesome-linseed.glitch.me/";
+ url=this.baseUrl +'api/login';
+ urladduser=this.baseUrl +'user';
+ urledituser=this.baseUrl +'useredit';
+ urladdmaterial=this.baseUrl +'materialadd';
+ urleditmaterial=this.baseUrl +'materialedit';
+ urladdoutlaytype=this.baseUrl +'outlaytypeadd';
+ urleditoutlaytype=this.baseUrl +'outlaytypeedit';
+ urldeleteuser=this.baseUrl +'deleteuser';
+ urlmaterial=this.baseUrl +'material';
+ urloutlaytype=this.baseUrl +'outlaytype';
+ urladdoutlay=this.baseUrl +'outlayadd';
+ urleditoutlay=this.baseUrl +'outlayedit';
+ urloutlay=this.baseUrl +'outlay/';
+ urlr1=this.baseUrl +'report';
+
 public user: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 constructor(private http: HttpClient,
   private toaster: ToastrService,
@@ -287,5 +290,31 @@ this.toaster.success("تم إضافة مادة بنجاح")
                localStorage.removeItem("userid");
                this.router.navigate(['login']);
             }
+            getreport1 = async () => {
+              try {
+                const result: any = await firstValueFrom(
+                  this.http.get(this.urlr1+1)
+                );
+            
+                return result;
+              } catch (error: any) {
+                  this.toaster.error('حدث خطأ ');
+                console.error(error);
+                throw error;
+              }}
+              getreport2 = async (id:any) => {
+                try {
+                  const result: any = await firstValueFrom(
+                    this.http.get(this.urlr1+2+'/'+id)
+                  );
+              
+                  return result;
+                } catch (error: any) {
+                    this.toaster.error('حدث خطأ ');
+                  console.error(error);
+                  throw error;
+                }}
+
+
 }
 

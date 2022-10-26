@@ -15,9 +15,8 @@ export class AuthGuard implements CanActivate {
       if(localStorage.getItem("user"))
       {
        
-        if((JSON.parse(localStorage.getItem("user")||'null')?.admin || '') == '0'){
+        if((JSON.parse(localStorage.getItem("user")||'null')?.admin || '') == 0){
           this.toaster.warning("ليس لديك صلاحية الأدمن")
-          this.router.navigate( [ 'login','verify' ] );
           return false;
         }
         else{
